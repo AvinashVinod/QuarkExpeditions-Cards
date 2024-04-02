@@ -1,0 +1,252 @@
+@import "./variables"
+@import "./mixin"
+
+//////// reset /////////
+
+* 
+   box-sizing: border-box 
+   margin: 0
+   padding: 0 
+
+img 
+    min-height: 100%
+    max-width: 100%   
+    object-fit: cover
+    object-position: center
+
+button
+    border: none  
+    border-radius: $primary-br    
+    padding: $btn-br 
+
+::webkit-scrollbar
+    display: none            
+
+////// general styles ///////
+
+body 
+    font-family: $ff-sans  
+
+.header__logo
+    height: 10rem  
+
+    @media (max-width: 650px)
+        height: 6rem
+
+.header__nav  
+
+main 
+    min-height: 100vh
+    padding: 2rem 0 5rem
+    @media (min-width: 900px)
+       padding: 2rem
+
+    & > header
+        font-size: $fs-900   
+        text-align: $center
+        width: 100%
+        padding: 2rem
+
+        
+
+    section#cards-container
+        width: 100%
+        display: grid
+        grid-template-columns: repeat(auto-fit, minmax(600px, 1fr))
+        gap: 2.5rem
+
+        @media (min-width: 1205px)
+            grid-template-columns: repeat(4, 900px)
+            margin-top: 3rem
+            overflow-x: auto
+            padding: 2rem
+
+            
+
+        @media (max-width: 620px)
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr))
+
+        article
+            border-radius: $secondary-br
+            box-shadow: $box-shadow
+            overflow: hidden
+            padding: 1.5rem
+            margin: 0 1rem
+            display: grid
+            grid-template-columns: 1.2fr 2fr 
+            gap: 1.5rem
+
+            @media (min-width: 900px)
+                grid-template-columns: 1fr 2fr
+                
+
+            @media (max-width: 650px)
+                grid-template-columns: 1fr 
+                padding: 2rem 0.7rem   
+
+
+/////////// card__first ////////////
+
+.first-related 
+    height: 70px
+    width: 100%
+
+    @media (max-width: 650px)
+        height: 100%
+
+.more
+    position: relative    
+
+div.card__first
+    display: grid
+    grid-template-rows: 1fr 0.45fr
+    gap: $secondary-br
+
+    & > :first-child
+        border-radius: $secondary-br
+
+    .first__main-img
+        background-image: url("https://images.unsplash.com/photo-1541420565422-dd78ab4364ca?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+        background-position: center
+        background-size: cover 
+
+        @media (max-width: 650px)
+            height: 300px
+
+    .first-related--custom::before
+        content: ""
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+
+        
+        background-image: url("../png/gallery.png")
+        background-size: cover
+        height: 2.5rem
+        width: 2.5rem
+
+        @media (max-width: 650px)
+            height: 3rem
+            width: 3rem
+
+    .first__related-img
+        display: grid
+        grid-template-columns: repeat(2, 1fr)
+        grid-template-rows: repeat(2, 1fr)
+        gap: $secondary-br
+
+        @media (max-width: 650px)
+            height: 250px
+
+        & div
+            border-radius: $secondary-br
+            overflow: hidden
+
+///////// card__second /////////
+
+.second__first > :not(:nth-child(4))
+    margin-bottom: 1.5rem
+
+hr
+   background-color: $primary-grey-600
+   border: none
+   height: 0.1rem
+
+.card__second .second__first-explore
+    background-color: $primary-d-blue-200
+    border-radius: $primary-br
+    padding: $btn-br
+    display: grid
+    grid-template-columns: 2fr 0.2fr
+
+    .first-explore__first
+        color: $primary-bg-100
+        @include flex(row)
+        align-items: center
+        gap: 1rem
+
+    .right-arrow 
+        @include flex(row)
+        justify-content: flex-end
+
+.ratings
+    @include flex(row)
+    align-items: center     
+    gap: $secondary-br  
+    
+    .reviews 
+        color: $primary-grey-600
+
+.card__heading h2
+    font-size: $fs-200 
+    width: 80%
+
+.card__bio:has(:nth-child(4))
+    columns: 2
+
+    & > *
+        margin-bottom: 1.5rem
+
+    & > div 
+        @include flex(row)
+        align-items: center    
+        gap: 1.5rem
+
+        @media (max-width: 620px)
+            gap: 0.3rem
+      
+
+/////////////card-second second///////////////   
+
+.second__second > :not(div :last-child)
+    margin-bottom: 1.5rem
+
+.second__button
+    background-color: $primary-l-green-100
+    color: $primary-bg-100
+
+.second__inner-first
+    @include flex(row)
+    justify-content: space-between
+    align-items: center
+
+    & div
+        @include flex(row)
+        align-items: center
+        gap: $primary-br
+
+        p
+            color: $primary-d-green-200
+            
+        .bold
+            font-weight: 600
+
+        .price
+            font-size: $fs-300  
+            padding: 0 0.4rem
+
+        .prev-price
+            color: $primary-grey-600
+            margin-bottom: -0.24rem
+            text-decoration: line-through
+            white-space: nowarap
+
+.package
+    font-size: 0.6rem
+    text-align: right
+    text-decoration: underline
+
+.second__inner-second
+    display: grid
+    grid-template-columns: 1fr 2fr
+    gap: 1.5rem
+
+    .learn
+        background-color: $primary-bg-200
+        color: $primary-bg-100
+
+    .check
+        background-color: $primary-d-blue-200
+        color: $primary-bg-200
+
