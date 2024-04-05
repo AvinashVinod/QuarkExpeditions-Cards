@@ -97,12 +97,12 @@ main section.cards .card {
   }
 }
 
-.card__gallery-related-img {
+.gallery__related-img {
   height: 70px;
   width: 100%;
 }
 @media (max-width: 650px) {
-  .card__gallery-related-img {
+  .gallery__related-img {
     height: 100%;
   }
 }
