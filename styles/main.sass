@@ -49,7 +49,7 @@ main
 
         
 
-    section#cards-container
+    section.cards
         width: 100%
         display: grid
         grid-template-columns: repeat(auto-fit, minmax(600px, 1fr))
@@ -61,12 +61,10 @@ main
             overflow-x: auto
             padding: 2rem
 
-            
-
         @media (max-width: 620px)
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr))
 
-        article
+        .card
             border-radius: $secondary-br
             box-shadow: $box-shadow
             overflow: hidden
@@ -85,19 +83,19 @@ main
                 padding: 2rem 0.7rem   
 
 
-/////////// card__first ////////////
+/////////// card-gallery-section ////////////
 
-.first-related 
+.card__gallery-related-img
     height: 70px
     width: 100%
 
     @media (max-width: 650px)
         height: 100%
 
-.more
+.relative
     position: relative    
 
-div.card__first
+.card__gallery
     display: grid
     grid-template-rows: 1fr 0.45fr
     gap: $secondary-br
@@ -105,7 +103,7 @@ div.card__first
     & > :first-child
         border-radius: $secondary-br
 
-    .first__main-img
+    .gallery__main-img
         background-image: url("https://images.unsplash.com/photo-1541420565422-dd78ab4364ca?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
         background-position: center
         background-size: cover 
@@ -113,7 +111,7 @@ div.card__first
         @media (max-width: 650px)
             height: 300px
 
-    .first-related--custom::before
+    .gallery__related-img--custom::before
         content: ""
         position: absolute
         left: 50%
@@ -130,7 +128,7 @@ div.card__first
             height: 3rem
             width: 3rem
 
-    .first__related-img
+    .gallery__related-imgs
         display: grid
         grid-template-columns: repeat(2, 1fr)
         grid-template-rows: repeat(2, 1fr)
@@ -143,9 +141,9 @@ div.card__first
             border-radius: $secondary-br
             overflow: hidden
 
-///////// card__second /////////
+/////////card-content-section/////////
 
-.second__first > :not(:nth-child(4))
+.content__desc > :not(:nth-child(4))
     margin-bottom: 1.5rem
 
 hr
@@ -153,14 +151,14 @@ hr
    border: none
    height: 0.1rem
 
-.card__second .second__first-explore
+.content__explore
     background-color: $primary-d-blue-200
     border-radius: $primary-br
     padding: $btn-br
     display: grid
     grid-template-columns: 2fr 0.2fr
 
-    .first-explore__first
+    .content__explore-heading
         color: $primary-bg-100
         @include flex(row)
         align-items: center
@@ -170,19 +168,19 @@ hr
         @include flex(row)
         justify-content: flex-end
 
-.ratings
+.content__ratings
     @include flex(row)
     align-items: center     
     gap: $secondary-br  
     
-    .reviews 
+    .content__reviews 
         color: $primary-grey-600
 
-.card__heading h2
+.content__main-heading h2
     font-size: $fs-200 
     width: 80%
 
-.card__bio:has(:nth-child(4))
+.content__bio:has(:nth-child(4))
     columns: 2
 
     & > *
@@ -197,16 +195,16 @@ hr
             gap: 0.3rem
       
 
-/////////////card-second second///////////////   
+/////////////card-cta-section///////////////   
 
-.second__second > :not(div :last-child)
+.card__content-cta > :not(div :last-child)
     margin-bottom: 1.5rem
 
-.second__button
+.cta__save
     background-color: $primary-l-green-100
     color: $primary-bg-100
 
-.second__inner-first
+.cta__range
     @include flex(row)
     justify-content: space-between
     align-items: center
@@ -219,34 +217,34 @@ hr
         p
             color: $primary-d-green-200
             
-        .bold
+        .cta--bold
             font-weight: 600
 
-        .price
+        .cta__price
             font-size: $fs-300  
             padding: 0 0.4rem
 
-        .prev-price
+        .cta__prev-price
             color: $primary-grey-600
             margin-bottom: -0.24rem
             text-decoration: line-through
             white-space: nowarap
 
-.package
+.cta__package
     font-size: 0.6rem
     text-align: right
     text-decoration: underline
 
-.second__inner-second
+.cta__action
     display: grid
     grid-template-columns: 1fr 2fr
     gap: 1.5rem
 
-    .learn
+    .cta__action-learn
         background-color: $primary-bg-200
         color: $primary-bg-100
 
-    .check
+    .cta__action-avail
         background-color: $primary-d-blue-200
         color: $primary-bg-200
 
